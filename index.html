@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #menu li{
+        padding:10px;
+    }
+    #menu li:hover{
+        background: #cccccc;
+        color: #000000;
+    }
+    .selected{
+        background: #cccccc;
+        color: red;
+    }
+    
+    </style>
+</head>
+<body>
+
+<h2 id="texte"texte>titre 1</h2>
+<button id="btns">click ici</button>
+<ul id="menu">
+    <li>titre titre 1</li>
+    <li>titre titre 1</li>
+    <li>titre titre  titre1</li>
+    <li>titre titre 1</li>
+    <li>titre titre 1</li>
+</ul>
+
+    <script>
+    
+
+var menuItem = document.getElementById('menu').getElementsByTagName('li');
+var titleHead = document.getElementById('texte');
+var myMenu = document.getElementById('menu');
+var btn = document.getElementById('btns');
+var counter = 1;
+//for(i=0;i<menuItem.length;i++){
+  //  menuItem[i].addEventListener('click', menuSelect);
+//}
+
+myMenu.addEventListener('click', menuSelect)
+function  menuSelect (n){
+ if(n.target.nodeName=='LI'){
+    titleHead.innerHTML= n.target.innerHTML;
+    for(i=0;i<menuItem.length;i++){
+    menuItem[i].classList.remove('selected');
+ }
+ n.target.classList.add('selected');
+};
+
+}
+
+btn.addEventListener('click',newItem);
+
+function newItem (){
+    myMenu.innerHTML += "<li> new list" + counter +"</li>"
+counter++
+}
+
+
+
+console.log(menuItem)
+
+
+    </script>
+    
+</body>
+</html>
